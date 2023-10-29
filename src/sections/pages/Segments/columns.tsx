@@ -44,7 +44,7 @@ export const columns: ColumnDef<ColumnData>[] = [
   },
   {
     accessorKey: "perdidas",
-    header: ({ column }) => createHeaderButton("Perdidas", column),
+    header: ({ column }) => createHeaderButton("Pérdidas", column),
     cell: ({ row }) => formatCurrency(parseFloat(row.getValue("perdidas"))),
   },
 ];

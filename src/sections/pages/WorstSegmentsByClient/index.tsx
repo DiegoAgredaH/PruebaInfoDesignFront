@@ -7,6 +7,7 @@ import { BarChartWorstSegments, TabsInfo } from "@/components";
 export const WorstSegmentsByClient = () => {
   const dispatch = useAppDispatch();
   const { worstSegmentsData } = useAppSelector((state) => state.worstSegments);
+  const idComponent = "WorstSegmentsByClient"
 
   useEffect(() => {
     if (worstSegmentsData.length === 0) {
@@ -24,7 +25,7 @@ export const WorstSegmentsByClient = () => {
         Muestra el top 20 de peores Tramos/Cliente.
       </p>
       <div className="flex justify-center items-center">
-        <TabsInfo columns={columns} data={worstSegmentsData} GraphicsComponent={BarChartWorstSegments}/>
+        <TabsInfo columns={columns} data={worstSegmentsData} GraphicsComponent={BarChartWorstSegments} component={idComponent}/>
       </div>
     </div>
   );

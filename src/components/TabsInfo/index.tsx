@@ -9,9 +9,10 @@ interface Props {
   columns: ColumnDef<ColumnData>[];
   data: ColumnData[];
   GraphicsComponent: () => JSX.Element;
+  component: string;
 }
 
-export const TabsInfo = ({ columns, data, GraphicsComponent }: Props) => {
+export const TabsInfo = ({ columns, data, GraphicsComponent, component }: Props) => {
   return (
     <Tabs defaultValue="table" className="w-full">
       <TabsList className="grid w-[400px] grid-cols-2 justify-center mx-auto">
@@ -19,7 +20,7 @@ export const TabsInfo = ({ columns, data, GraphicsComponent }: Props) => {
         <TabsTrigger value="graphics">Gráficas</TabsTrigger>
       </TabsList>
       <TabsContent value="table">
-        <DataTable columns={columns} data={data} />
+        <DataTable columns={columns} data={data} component={component}/>
       </TabsContent>
       <TabsContent value="graphics">
         <GraphicsComponent />

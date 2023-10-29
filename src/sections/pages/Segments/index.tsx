@@ -7,6 +7,7 @@ import { columns } from "./columns";
 export const Segments = () => {
   const dispatch = useAppDispatch();
   const { segmentsData } = useAppSelector((state) => state.segments);
+  const idComponent = 'Segments'
 
   useEffect(() => {
     if (segmentsData.length === 0) {
@@ -21,13 +22,14 @@ export const Segments = () => {
         Tramos
       </h1>
       <p className="text-sm text-gray-500">
-        Muestra los consumos, perdidas y costos por tramos.
+        Muestra los consumos, pérdidas y costos por tramos.
       </p>
       <div className="flex justify-center items-center">
         <TabsInfo
           columns={columns}
           data={segmentsData}
           GraphicsComponent={BarChartSegments}
+          component={idComponent}
         />
       </div>
     </div>

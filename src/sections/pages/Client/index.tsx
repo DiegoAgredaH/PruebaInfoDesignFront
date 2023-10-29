@@ -7,6 +7,7 @@ import { columns } from "./columns";
 export const Client = () => {
   const dispatch = useAppDispatch();
   const { clientsData } = useAppSelector((state) => state.clients);
+  const idComponent = 'Client'
 
   useEffect(() => {
     if (clientsData.length === 0) {
@@ -21,11 +22,11 @@ export const Client = () => {
         Clientes
       </h1>
       <p className="text-sm text-gray-500">
-        Muestra los tramos consumos, perdidas y costos divididas por tipos de
+        Muestra los tramos consumos, pérdidas y costos divididas por tipos de
         usuarios.
       </p>
       <div className="flex justify-center items-center">        
-        <TabsInfo columns={columns} data={clientsData} GraphicsComponent={BarChartClients}/>
+        <TabsInfo columns={columns} data={clientsData} GraphicsComponent={BarChartClients} component={idComponent}/>
       </div>
     </div>
   );

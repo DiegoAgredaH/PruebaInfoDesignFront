@@ -5,6 +5,7 @@ import { store } from "./store";
 import "../index.css";
 import { Navigation } from "./routes/Navigation";
 import { Footer, Header } from "./components";
+import './global.css';
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

@@ -30,16 +30,17 @@ import {
 import { Icons } from "../ui/Icons";
 import { useState } from "react";
 import { Clients, Segments, WorstSegments } from "@/types";
-import { Loading } from "..";
+import { Loading, RangeDatePicker } from "..";
 
 type ColumnData = Segments | Clients | WorstSegments;
 
 interface Props {
   columns: ColumnDef<ColumnData>[];
   data: ColumnData[];
+  component: string
 }
 
-export function DataTable({ columns, data }: Props) {
+export function DataTable({ columns, data, component }: Props) {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -81,6 +82,7 @@ export function DataTable({ columns, data }: Props) {
           }
           className="max-w-sm"
         />
+        <RangeDatePicker component = {component}/>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
