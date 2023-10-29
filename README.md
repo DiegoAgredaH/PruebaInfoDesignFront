@@ -31,6 +31,15 @@ Additionally, the reusable component collection from ShadCN has been leveraged t
    npm run dev
 ```
 
+5. Both the backend and frontend of this project have been deployed: 
+
+```js
+   Backend: https://pruebainfodesignback-production.up.railway.app/
+```
+```js
+   Frontend: https://prueba-info-design-front.vercel.app/
+```
+
 ## :computer: Technologies
 
 - **Vite:** A rapid and modern development environment that enhances the efficiency of web application building.

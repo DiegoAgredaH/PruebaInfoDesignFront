@@ -7,7 +7,7 @@ export const Navigation = () => {
   return (
     <Suspense fallback={""}>
       <BrowserRouter>
-        <aside className="hidden w-[200px] flex-col m-4 md:flex">
+        <aside className="w-[200px] flex-col m-4 flex">
           <NavBar />
         </aside>
 
