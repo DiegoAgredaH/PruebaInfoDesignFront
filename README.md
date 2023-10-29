@@ -14,10 +14,10 @@ Additionally, the reusable component collection from ShadCN has been leveraged t
 1. Clone this repository:
 
 ```js
-   git clone https://github.com/DiegoAgredaH/TestHinicio.git
+   git clone https://github.com/DiegoAgredaH/PruebaInfoDesignFront.git
 ```
 
-2. Go inside 'TESTHINICIO' folder
+2. Go inside 'PruebaInfoDesignFront' folder
 
 3. Install the dependencies:
 
@@ -40,7 +40,8 @@ Additionally, the reusable component collection from ShadCN has been leveraged t
 - **Tailwind CSS:** A highly customizable styling framework that allows us to create an appealing and adaptive interface.
 - **Axios:** A JavaScript library used for making HTTP requests from the browser or Node.js.
 - **Redux:** A predictable state container for JavaScript applications, which helps manage global state efficiently.
+- **React router dom V6:**  A powerful routing library for React applications that simplifies navigation and URL management.
 
 ## :alien: Created by: Diego Fernando Agreda
 
-August 13th, 2023
+October 29th, 2023
