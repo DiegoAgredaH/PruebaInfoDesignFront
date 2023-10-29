@@ -9,17 +9,28 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from "recharts";
+interface DataItem {
+  Linea: string;
+  TipoConsumo: string;
+  Perdidas: number;
+}
 
 export const BarChartWorstSegments = () => {
   const { worstSegmentsData } = useAppSelector((state) => state.worstSegments);
-  const groupedData = worstSegmentsData.reduce((acc, item) => {
-    const key = item.Linea;
-    if (!acc[key]) {
-      acc[key] = { Linea: item.Linea };
-    }
-    acc[key][item.TipoConsumo] = item.Perdidas;
-    return acc;
-  }, {});
+
+  const groupedData = worstSegmentsData.reduce(
+    (acc: Record<string, Record<string, unknown>>, item: DataItem) => {
+      const key = item.Linea;
+
+      if (!acc[key]) {
+        acc[key] = { Linea: item.Linea };
+      }
+
+      acc[key][item.TipoConsumo] = item.Perdidas;
+      return acc;
+    },
+    {} as Record<string, Record<string, unknown>>
+  );
 
   const chartData = Object.values(groupedData);
 
@@ -40,7 +51,7 @@ export const BarChartWorstSegments = () => {
               {chartData.map((entry, index) => (
                 <text
                   x="50%"
-                  y={entry.Comercial / 2}
+                  y={entry.Comercial as number / 2}
                   dy={index % 2 === 0 ? -10 : 15}
                   fill="#8884d8"
                   textAnchor="middle"
@@ -54,7 +65,7 @@ export const BarChartWorstSegments = () => {
               {chartData.map((entry, index) => (
                 <text
                   x="50%"
-                  y={entry.Comercial + entry.Residencial / 2}
+                  y={(entry.Comercial as number) + (entry.Residencial as number) / 2}
                   dy={index % 2 === 0 ? -10 : 15}
                   fill="#82ca9d"
                   textAnchor="middle"
@@ -68,7 +79,7 @@ export const BarChartWorstSegments = () => {
               {chartData.map((entry, index) => (
                 <text
                   x="50%"
-                  y={entry.Comercial + entry.Residencial + entry.Industrial / 2}
+                  y={(entry.Comercial as number) + (entry.Residencial as number) + (entry.Industrial as number) / 2}
                   dy={index % 2 === 0 ? -10 : 15}
                   fill="#ffc658"
                   textAnchor="middle"
